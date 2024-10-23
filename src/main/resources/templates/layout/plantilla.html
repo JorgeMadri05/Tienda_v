@@ -9,6 +9,7 @@
         <meta charset="UTF-8"/>
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
         <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script src="/js/rutinas.js" type="text/javascript"></script>
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
@@ -16,7 +17,7 @@
     </head>
     
     <body>
-        <header th:fragment="header" class="header">
+        <header th:fragment="header" class="header sticky-top">
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
                 <div class="container">s
                     <a th:href="@{/}" class="navbar-brand">[[#{aplicacion.titulo}]]</a>

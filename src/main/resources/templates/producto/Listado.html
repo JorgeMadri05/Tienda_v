@@ -12,11 +12,11 @@
         <header th:replace="~{layout/plantilla :: header}">
         </header>
         
-        <p>El total de elementos es: [[${totalCategorias}]]</p>
+        <p>El total de elementos es: [[${totalProductos}]]</p>
         
-        <section th:replace="~{categoria/fragmentos :: botonesAgregar}"></section>
-        <section th:replace="~{categoria/fragmentos :: agregarCategoria}"></section>
-        <section th:replace="~{categoria/fragmentos :: listadoCategorias}"></section>
+        <section th:replace="~{producto/fragmentos :: botonesAgregar}"></section>
+        <section th:replace="~{producto/fragmentos :: agregarProducto}"></section>
+        <section th:replace="~{producto/fragmentos :: listadoProductos}"></section>
         
 
         <footer th:replace="~{layout/plantilla :: footer}"></footer>
