@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--Esta es mi primera pagina HTML dinamica-->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       >
@@ -9,13 +8,10 @@
         <meta charset="UTF-8"/>
     </head>
     <body>
-        <header th:replace="~{layout/plantilla :: header}">
-        </header>
-        
-        <p>El total de elementos es: [[${totalCategorias}]]</p>
-        
-        
-        <section th:replace="~{producto/fragmentos :: editarProducto}"></section>
+        <header th:replace="~{layout/plantilla :: header}"></header>
+                
+        <section th:replace="~{pruebas/fragmentos :: consultas}"></section>
+        <section th:replace="~{pruebas/fragmentos :: tarjetas}"></section>
         
 
         <footer th:replace="~{layout/plantilla :: footer}"></footer>

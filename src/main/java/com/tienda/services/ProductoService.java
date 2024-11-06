@@ -7,11 +7,8 @@ public interface ProductoService {
 
     //Metodo para recuperar todos los registros de la tabla
     //producto, solo activos... o todos.
-    public List<Producto> getCaterias(boolean activo);
-    
-    // Se obtiene un listado de productos en un List
-    public List<Producto> getProductos(boolean activos);
-    
+    public List<Producto> getProductos(boolean activo);
+   
    // Se obtiene un Producto, a partir del id de un producto
     public Producto getProducto(Producto producto);
     

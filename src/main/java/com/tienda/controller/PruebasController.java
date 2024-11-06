@@ -1,6 +1,7 @@
 
 package com.tienda.controller;
 
+import com.tienda.domain.Categoria;
 import com.tienda.domain.Producto;
 import com.tienda.services.CategoriaService;
 import com.tienda.services.ProductoService;
@@ -15,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-@RequestMapping("/producto")
+@RequestMapping("/pruebas")
 
-public class ProductoController {
+public class PruebasController {
  
     @Autowired
     private ProductoService productoService;
@@ -29,44 +30,32 @@ public class ProductoController {
     public String listado(Model model){
         var lista=productoService.getProductos(false);
         model.addAttribute("productos", lista);
-        model.addAttribute("totalProductos", lista.size());
        
         var categorias = categoriaService.getCategorias(true);
         model.addAttribute("categorias", categorias);
-        return "/producto/listado";
+        return "/pruebas/listado";
     }
 
-    @Autowired
-    private FirebaseStorageServiceImpl firebaseStorageService;
     
-    @PostMapping("/guardar")
-    public String productoGuardar(Producto producto,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {        
-        if (!imagenFile.isEmpty()) {
-            productoService.save(producto);
-            producto.setRutaImagen(
-                    firebaseStorageService.cargaImagen(
-                            imagenFile, 
-                            "producto", 
-                            producto.getIdProducto()));
-        }
-        productoService.save(producto);
-        return "redirect:/producto/listado";
-    }
-
-    @GetMapping("/eliminar/{idProducto}")
-    public String productoEliminar(Producto producto) {
-        productoService.delete(producto);
-        return "redirect:/producto/listado";
-    }
-
-    @GetMapping("/modificar/{idProducto}")
-    public String productoModificar(Producto producto, Model model) {
-        producto = productoService.getProducto(producto);
-        model.addAttribute("producto", producto);
+    @GetMapping("/listado/{idCategoria}")
+    public String listado(Categoria categoria, Model model) {
+        categoria = categoriaService.getCategoria(categoria);
+        
+        var productos=categoria.getProductos();
+        model.addAttribute("productos", productos);
+        
         var categorias = categoriaService.getCategorias(true);
         model.addAttribute("categorias", categorias);
-        return "/producto/modifica";
+        return "/pruebas/listado";
+    }
+
+    
+    @GetMapping("/listado2")
+    public String listado2(Model model){
+        var lista=productoService.getProductos(false);
+        model.addAttribute("productos", lista);
+       
+        return "/pruebas/listado2";
     }
 
     

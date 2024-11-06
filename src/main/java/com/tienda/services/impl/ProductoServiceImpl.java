@@ -19,7 +19,7 @@ public class ProductoServiceImpl
     
     @Override
     @Transactional(readOnly=true) //Genera una transaccion
-    public List<Producto> getCaterias(boolean activo) {
+    public List<Producto> getProductos(boolean activo) {
         var lista=productoDao.findAll();
         
         if (activo) {
@@ -32,19 +32,11 @@ public class ProductoServiceImpl
     
     @Override
     @Transactional(readOnly = true)
-    public List<Producto> getProductos(boolean activos) {
-        var lista = productoDao.findAll();
-        if (activos) {
-            lista.removeIf(e -> !e.isActivo());
-        }
-        return lista;
-    }
-
-    @Override
-    @Transactional(readOnly = true)
     public Producto getProducto(Producto producto) {
         return productoDao.findById(producto.getIdProducto()).orElse(null);
     }
+
+    
 
     @Override
     @Transactional

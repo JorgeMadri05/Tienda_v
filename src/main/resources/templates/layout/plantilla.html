@@ -19,7 +19,7 @@
     <body>
         <header th:fragment="header" class="header sticky-top">
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-                <div class="container">s
+                <div class="container">
                     <a th:href="@{/}" class="navbar-brand">[[#{aplicacion.titulo}]]</a>
                     <button class="navbar-toggler" 
                             data-bs-toggle="collapse"
@@ -30,7 +30,7 @@
                          class="collapse navbar-collapse justify-content-between">
                         <ul class="navbar-nav">
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantilla.productos}]]</a></li>
+                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-togle"
                                    data-bs-toggle="dropdown"
@@ -106,7 +106,7 @@
             <h2>Uso de Thymeleaf</h2>
             <p>usando fragmentos...</p>
             
-        </section>>
+        </section>
         
         
         <footer th:fragment="footer" class="p-2 mt-5 bg-info text-white">

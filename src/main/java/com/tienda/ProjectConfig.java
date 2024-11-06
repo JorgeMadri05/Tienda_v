@@ -31,6 +31,5 @@ public class ProjectConfig
     
     @Override
     public void addInterceptors(InterceptorRegistry registro){
-        registro.addInterceptor(localeChangeInterceptor())
-;    }
+        registro.addInterceptor(localeChangeInterceptor());    }
 }
