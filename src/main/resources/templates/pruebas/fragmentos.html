@@ -103,7 +103,65 @@
                             </button>
                         </div>
                     </form>
-                </div>    
+                </div>
+                
+                <div class="card p-2">
+                    <form method="post"
+                          action="/pruebas/consultaJPQL">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h4>[[#{pruebas.jpql}]]</h4>
+                        </div>
+                        <div class="card-body bg-warning">
+                            <div class="mb-3">
+                                <label for="precioInf">[[#{pruebas.precio.inferior}]]</label>
+                                <input type="number"
+                                       name="precioInf"
+                                       th:value="${precioInf}"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="precioSup">[[#{pruebas.precio.superior}]]</label>
+                                <input type="number"
+                                       name="precioSup"
+                                       th:value="${precioSup}"/>
+                            </div>
+                        </div>                            
+                        <div class="card-footer bg-secundary text-center">
+                            <button class="btn btn-primary text-white"
+                                    type="submit">
+                                <i class="fas fa-magnifying-glass"></i> [[#{pruebas.jpql}]]
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="card p-2">
+                    <form method="post"
+                          action="/pruebas/consultaSQL">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h4>[[#{pruebas.nativo}]]</h4>
+                        </div>
+                        <div class="card-body bg-warning">
+                            <div class="mb-3">
+                                <label for="precioInf">[[#{pruebas.precio.inferior}]]</label>
+                                <input type="number"
+                                       name="precioInf"
+                                       th:value="${precioInf}"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="precioSup">[[#{pruebas.precio.superior}]]</label>
+                                <input type="number"
+                                       name="precioSup"
+                                       th:value="${precioSup}"/>
+                            </div>
+                        </div>                            
+                        <div class="card-footer bg-secundary text-center">
+                            <button class="btn btn-primary text-white"
+                                    type="submit">
+                                <i class="fas fa-magnifying-glass"></i> [[#{pruebas.nativo}]]
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
     </body>

@@ -50,4 +50,24 @@ public class ProductoServiceImpl
         productoDao.delete(producto);
     }
     
+    //Recupera el lsitado d eproducto que tienen un precio de un rango
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> consultaAmpliada(double precioInf, double precioSup){
+        return productoDao.findByPrecioBetweenOrderByDescripcion(precioInf, precioSup);
+    }
+    
+    //Recupera el listado de producto que tienen un precio de un rango usando JPQL
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> consultaJPQL(double precioInf, double precioSup){
+        return productoDao.consultaJPQL(precioInf, precioSup);
+    }
+    
+    //Recupera el listado de producto que tienen un precio de un rango usando SQL
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> consultaSQL(double precioInf, double precioSup){
+        return productoDao.consultaSQL(precioInf, precioSup);
+    }
 }

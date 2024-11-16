@@ -54,9 +54,44 @@ public class PruebasController {
     public String listado2(Model model){
         var lista=productoService.getProductos(false);
         model.addAttribute("productos", lista);
-       
         return "/pruebas/listado2";
     }
+    
+    @PostMapping("/consultaAmpliada")
+    public String consultaAmpliada(
+            @RequestParam(value="precioInf") double precioInf,
+            @RequestParam(value="precioSup") double precioSup,
+            Model model){
+        var lista=productoService.consultaAmpliada(precioInf, precioSup);
+        model.addAttribute("productos", lista);
+        model.addAttribute("precioInf", precioInf);
+        model.addAttribute("precioSup", precioSup);
+        return "/pruebas/listado2";
+    }
+    
+    @PostMapping("/consultaJPQL")
+    public String consultaJPQL(
+            @RequestParam(value="precioInf") double precioInf,
+            @RequestParam(value="precioSup") double precioSup,
+            Model model){
+        var lista=productoService.consultaJPQL(precioInf, precioSup);
+        model.addAttribute("productos", lista);
+        model.addAttribute("precioInf", precioInf);
+        model.addAttribute("precioSup", precioSup);
+        return "/pruebas/listado2";
+    }
+    @PostMapping("/consultaSQL")
+    public String consultaSQL(
+            @RequestParam(value="precioInf") double precioInf,
+            @RequestParam(value="precioSup") double precioSup,
+            Model model){
+        var lista=productoService.consultaSQL(precioInf, precioSup);
+        model.addAttribute("productos", lista);
+        model.addAttribute("precioInf", precioInf);
+        model.addAttribute("precioSup", precioSup);
+        return "/pruebas/listado2";
+    }
+    
 
     
     

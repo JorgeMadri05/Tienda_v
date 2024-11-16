@@ -105,9 +105,17 @@
                     <groupId>com.google.firebase</groupId>
                     <artifactId>firebase-admin</artifactId>
                     <version>9.4.1</version>
-                </dependency>  
+                </dependency>
+            <dependency>
+                 <groupId>org.springframework.boot</groupId>
+                 <artifactId>spring-boot-starter-security</artifactId>
+                </dependency>
                 
-        </dependencies>
+                <dependency>
+                 <groupId>org.thymeleaf.extras</groupId>
+                 <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+                </dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
