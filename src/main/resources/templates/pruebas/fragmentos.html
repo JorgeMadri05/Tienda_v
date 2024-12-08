@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
-      >
-
+      xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{layout/plantilla :: head}">
         <title>Esto no sale...</title>
-        <meta charset="UTF-8"/>
+        <meta charset="UTF-8"/>  
 
     </head>
     <body>
@@ -27,12 +25,13 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </div>            
         </section>
+
 
         <!-- 2 Sección para mostrar el listado de productos-->
         <section th:fragment="tarjetas">
-            <div class="container">
+            <div class="container mt-3">
                 <div th:if='${productos != null and !productos.empty}'>
                     <div class="row row-cols-4">
                         <div th:each="p : ${productos}"
@@ -73,7 +72,7 @@
             </div>
         </section>
 
-        <!--  Fragmentos para crear los filtros por tipo de consultas -->
+        <!-- 3 fragmento para crear los filtros por tipo de consultas -->
         <section th:fragment="consultas">
             <div class="row row-cols-3">
                 <div class="card p-2">
@@ -95,7 +94,7 @@
                                        name="precioSup"
                                        th:value="${precioSup}"/>
                             </div>
-                        </div>                            
+                        </div>
                         <div class="card-footer bg-secundary text-center">
                             <button class="btn btn-primary text-white"
                                     type="submit">
@@ -104,7 +103,7 @@
                         </div>
                     </form>
                 </div>
-                
+
                 <div class="card p-2">
                     <form method="post"
                           action="/pruebas/consultaJPQL">
@@ -124,7 +123,7 @@
                                        name="precioSup"
                                        th:value="${precioSup}"/>
                             </div>
-                        </div>                            
+                        </div>
                         <div class="card-footer bg-secundary text-center">
                             <button class="btn btn-primary text-white"
                                     type="submit">
@@ -153,7 +152,7 @@
                                        name="precioSup"
                                        th:value="${precioSup}"/>
                             </div>
-                        </div>                            
+                        </div>
                         <div class="card-footer bg-secundary text-center">
                             <button class="btn btn-primary text-white"
                                     type="submit">
@@ -162,7 +161,9 @@
                         </div>
                     </form>
                 </div>
-            </div>
+                
+            </div>            
         </section>
+
     </body>
 </html>

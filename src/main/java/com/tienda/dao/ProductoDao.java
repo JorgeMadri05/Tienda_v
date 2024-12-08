@@ -27,5 +27,10 @@ public interface ProductoDao
             + "ORDER BY a.descripcion ASC")
     public List<Producto> consultaSQL(
             double precioInf, double precioSup);
+    
+    public List<Producto> findByDescripcionContainingOrderByDescripcion(String Nombre);
+    
+
+
 }
 

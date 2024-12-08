@@ -18,18 +18,26 @@
                                 <div class="form-group row my-3">
                                     <label class="col-md-5 my-auto" for="username"><i class="fas fa-user-lock"></i>[[#{login.username}]]:</label>
                                     <div class="col-md-7 my-auto">
-                                        <input class="form-control" type="text" name="username" id="username"/></div></div>
+                                        <input class="form-control" type="text" name="username" id="username"/>
+                                    </div>
+                                </div>
                                 <div class="form-group row my-3">
                                     <label class="col-md-5 my-auto" for="password"><i class="fas fa-key"></i>[[#{login.password}]]</label>
-                                    <div class="col-md-7 my-auto"><input class="form-control" type="password" name="password" id="password"/></div></div>
+                                    <div class="col-md-7 my-auto">
+                                        <input class="form-control" type="password" name="password" id="password"/>
+                                    </div>
+                                </div>
                                 <div class="card-footer col text-center">
                                     <button class="btn btn-primary" >
-                                        <a th:href="@{/registro/nuevo}" class="btn"><i class="fas fa-user-plus"></i> [[#{accion.registrar}]]</a></button>
+                                        <a th:href="@{/registro/nuevo}" class="btn"><i class="fas fa-user-plus"></i> [[#{accion.registrar}]]</a>
+                                    </button>
                                     <button class="btn btn-info" >                                        
-                                        <a th:href="@{/registro/recordar}" class="btn"><i class="fas fa-envelope"></i> [[#{accion.recordar}]]</a></button>
+                                        <a th:href="@{/registro/recordar}" class="btn"><i class="fas fa-envelope"></i> [[#{accion.recordar}]]</a>
+                                    </button>
                                     <button class="btn btn-success" type="submit">
                                         <span class="btn"><i class="fas fa-sign-in-alt"></i>
-                                            [[#{login.login}]]</span></button>
+                                            [[#{login.login}]]</span>
+                                    </button>
                                 </div>
                             </form>                            
                         </div>

@@ -13,7 +13,6 @@
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-
     </head>
 
     <body>
@@ -26,13 +25,14 @@
                             data-bs-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div id="navbarCollapse" 
+                    <div id="navbarCollapse"
                          class="collapse navbar-collapse justify-content-between">
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav"
+                            sec:authorize="hasRole('ROLE_VENDEDOR')">
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
                             <li class="nav-item px-2"><a class="nav-link" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-togle"
+                                <a class="nav-link dropdown-toggle"
                                    data-bs-toggle="dropdown"
                                    href="#"
                                    role="button"
@@ -43,9 +43,9 @@
                                     <li><a class="dropdown-item" th:href="@{/reportes/principal}">[[#{plantilla.reportes}]]</a></li>
                                 </ul>
                             </li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-togle"
+                            <li class="nav-item dropdown"
+                                sec:authorize="hasRole('ROLE_ADMIN')">
+                                <a class="nav-link dropdown-toggle"
                                    data-bs-toggle="dropdown"
                                    href="#"
                                    role="button"
@@ -53,48 +53,53 @@
                                 <ul class="dropdown-menu dropdown-menu-dark">
                                     <li><a class="dropdown-item" th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a></li>
                                     <li><a class="dropdown-item" th:href="@{/constantes/listado}">[[#{plantilla.constantes}]]</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/reportes/principal}">[[#{plantilla.reportes}]]</a></li>
                                     <li class="submenu submenu-md dropend">
                                         <a class="dropdown-item dropdown-toggle"
                                            data-bs-toggle="dropdown"
                                            href="#"
                                            role="button"
                                            onclick="event.stopPropagation();"
-                                           aria-expanded="false">[[#{plantilla.seguridad}]]</a>
+                                           aria-expanded="false">
+                                            [[#{plantilla.seguridad}]]
+                                        </a>
                                         <ul class="dropdown-menu dropdown-menu-dark">
-                                            <li>
-                                                <a class="dropdown-item" th:href="@{/role/listado}">[[#{plantilla.troles}]]
+                                            <li><a class="dropdown-item" 
+                                                   th:href="@{/role/listado}">
+                                                    [[#{plantilla.troles}]]
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item" th:href="@{/usuario_role/asignar}">[[#{plantilla.permisos}]]
+                                            <li><a class="dropdown-item" 
+                                                   th:href="@{/usuario_role/asignar}">
+                                                    [[#{plantilla.permisos}]]
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item" th:href="@{/role/listado}">[[#{plantilla.rutas}]]
+                                            <li><a class="dropdown-item" 
+                                                   th:href="@{/ruta/listado}">
+                                                    [[#{plantilla.rutas}]]
                                                 </a>
                                             </li>
-                                        </ul>
-
+                                        </ul>                                        
                                     </li>
                                 </ul>
                             </li>
                         </ul>
+
                         <ul class="navbar-nav">
                             <li class="nav-link dropdown">
-                                <a class="nav-link dropdown-togle"
+                                <a class="nav-link dropdown-toggle"
                                    data-bs-toggle="dropdown"
                                    href="#"
                                    role="button"
                                    aria-expanded="false">[[#{plantilla.idioma}]]</a>
                                 <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" th:href="@{/(lan=es)}">Español</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/(lan=en)}">English</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/(lan=fr)}">Francais</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/(lan=pt)}">Portugais</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/(lang=es)}">Español</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/(lang=en)}">English</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/(lang=fr)}">Francais</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/(lang=pt)}">Portugais</a></li>
+                                </ul>
                             </li>
                         </ul>
-                        </ul>
+
                         <div id="resultBlock">
 
                         </div>
@@ -125,17 +130,11 @@
                                 </form>
                             </li>
                         </ul>
+
                     </div>
                 </div>
             </nav>
         </header>
-
-        <section>
-            <h2>Uso de Thymeleaf</h2>
-            <p>usando fragmentos...</p>
-
-        </section>
-
 
         <footer th:fragment="footer" class="p-2 mt-5 bg-info text-white">
             <p class="lead text-center">&COPY; [[#{plantilla.derechos}]] </p>

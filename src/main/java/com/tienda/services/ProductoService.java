@@ -28,6 +28,9 @@ public interface ProductoService {
     
     //Recupera el listado de producto que tienen un precio de un rango usando SQL
     public List<Producto> consultaSQL(double precioInf, double precioSup);
+    
+    public List<Producto> consultaPorNombre(String Nombre);
+    
 }
 
     

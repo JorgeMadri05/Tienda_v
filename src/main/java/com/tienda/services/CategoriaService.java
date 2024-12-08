@@ -3,9 +3,6 @@ package com.tienda.services;
 import com.tienda.domain.Categoria;
 import java.util.List;
 
-import com.tienda.domain.Categoria;
-import java.util.List;
-
 public interface CategoriaService {
     
     // Se obtiene un listado de categorias en un List

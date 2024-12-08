@@ -1,4 +1,3 @@
-
 package com.tienda.services.impl;
 
 import com.tienda.dao.UsuarioDao;
@@ -18,44 +17,43 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service("userDetailsService")
-public class UsuarioDetailsServiceImpl 
-implements UsuarioDetailsService, UserDetailsService{
-    
+public class UsuarioDetailsServiceImpl
+        implements UsuarioDetailsService, UserDetailsService {
+
     @Autowired
-    private UsuarioDao usuariodDao;
+    private UsuarioDao usuarioDao;
     
     @Autowired
     private HttpSession session;
-    
+
     @Override
-    @Transactional(readOnly=true)
-    public UserDetails loadUserByUsername(String username) 
+    @Transactional(readOnly = true)
+    public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {
-        // Se busca el ususario en la tabla de usuarios... por username
-        Usuario usuario = usuariodDao.findByUsername(username);
-        
-        //Se valida si el usuario se encontro
-        if (usuario == null) {
-            //El usuario NO se encontro
+
+        //Se busca el usuario en la tabla de usuarios... por username
+        Usuario usuario = usuarioDao.findByUsername(username);
+
+        //Se valida si el usuario se encontró
+        if (usuario ==null) {
+            //El usuario NO se encontró
             throw new UsernameNotFoundException(username);
         }
         
-        //Si esto se ejecuta se que SI se encontro
+        //Si esto se ejecuta es que SI se encontró
         session.removeAttribute("imagenUsuario");
         session.setAttribute("imagenUsuario", usuario.getRutaImagen());
-        //Aca se debe incorporar el codigo para la imagen del usuario...
         
-        //Se procede a recuperar los roels que tiene el usuario...
+        //Se procede a recuperar los roles que tiene el usuario...
         
         ArrayList roles = new ArrayList<GrantedAuthority>();
         
-        
-        //Se recorre el array list de los roles de usuario
-        for(Rol r: usuario.getRoles()){
+        //Se recorre el array list de los roles del usuario
+        for (Rol r: usuario.getRoles()) {
             roles.add(new SimpleGrantedAuthority("ROLE_"+r.getNombre()));
         }
         
         return new User(usuario.getUsername(),usuario.getPassword(),roles);
     }
-    
+
 }

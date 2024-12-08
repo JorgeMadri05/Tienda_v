@@ -70,4 +70,11 @@ public class ProductoServiceImpl
     public List<Producto> consultaSQL(double precioInf, double precioSup){
         return productoDao.consultaSQL(precioInf, precioSup);
     }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> consultaPorNombre(String Nombre){
+        return productoDao.findByDescripcionContainingOrderByDescripcion(Nombre);
+        
+    }
 }

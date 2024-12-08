@@ -92,6 +92,17 @@ public class PruebasController {
         return "/pruebas/listado2";
     }
     
+    @PostMapping("/consultaPorNombre")
+    public String consultaPorNombre(
+            @RequestParam(value="Nombre") String Nombre,
+            Model model){
+        var lista=productoService.consultaPorNombre(Nombre);
+        model.addAttribute("productos", lista);
+        model.addAttribute("precioInf", Nombre);
+        return "/pruebas/listado2";
+    }
+    
+    
 
     
     
