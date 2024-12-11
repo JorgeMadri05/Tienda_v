@@ -19,6 +19,8 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
+import org.thymeleaf.templatemode.TemplateMode;
 
 @Configuration
 public class ProjectConfig
@@ -90,4 +92,15 @@ public class ProjectConfig
         registro.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
     }
 
+    //Para ejecutar el sitio web fuera de netbeans
+    @Bean
+    public SpringResourceTemplateResolver resolver_0(){
+        SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
+        resolver.setPrefix("classpath:/templates");
+        resolver.setSuffix(".hmtl");
+        resolver.setTemplateMode(TemplateMode.HTML);
+        resolver.setOrder(0);
+        resolver.setCheckExistence(true);
+        return resolver;
+    }
 }
